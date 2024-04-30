@@ -1,4 +1,7 @@
 <?php
+/**
+ * Hello controller.
+ */
 
 namespace App\Controller;
 
@@ -6,24 +9,28 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
+/**
+ * Class HelloController.
+ */
 #[Route('/hello')]
 class HelloController extends AbstractController
 {
+    /**
+     * Index action.
+     *
+     * @param string $name User input
+     *
+     * @return Response HTTP response
+     */
     #[Route(
         '/{name}',
-        requirements: ['name' => '[a-zA-Z0-9]+'],
+        name: 'hello_index',
+        requirements: ['name' => '[a-zA-Z]+'],
         defaults: ['name' => 'World'],
-        name: 'hello_index2',
         methods: 'GET'
     )]
-
-    // /hello?name=Ann
-    public function index2(string $name): Response
+    public function index(string $name): Response
     {
-        //$name = $request->query->getAlnum('name','World');
-
-        //return new Response('Hello '.$name.'!');
-
         return $this->render(
             'hello/index.html.twig',
             ['name' => $name]

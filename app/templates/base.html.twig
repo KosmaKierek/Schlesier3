@@ -9,18 +9,13 @@
               crossorigin="anonymous">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
               rel="stylesheet">
-
         <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
-
     {% endblock %}
 </head>
 <body>
 <main role="main" class="container-fluid">
-    {# {% include 'default/_nav.html.twig' %} #}
-    {# {% include 'default/_flash_messages.html.twig' %} #}
-     {% block body %}{% endblock %}
+    {% block body %}{% endblock %}
 </main>
-{#  {% include 'default/_footer.html.twig' %} #}
 {% block javascripts %}
     {# {% block importmap %}{{ importmap('app') }}{% endblock %}#}
     <script
@@ -36,4 +31,3 @@
 {% endblock %}
 </body>
 </html>
-
